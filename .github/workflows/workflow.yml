@@ -12,6 +12,13 @@ concurrency:
     cancel-in-progress: false
 jobs:
     test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Clone repository
+          uses: actions/checkout@v3
+        - name: Validate html
+          uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+    deploy:
         environment:
           name: github-pages
           url: ${{ steps.deploymentID.outputs.page_url }}
@@ -30,4 +37,5 @@ jobs:
             - name: Deployment web page
               id: deploymentID
               uses: actions/deploy-pages@v2
+          
             
