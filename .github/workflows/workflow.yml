@@ -25,7 +25,7 @@ jobs:
         - name: Check environment
           run: echo ${{secrets.author_name}}
         - name: check version
-          run: echo ${{version}}
+          run: echo ${{env.version}}
     deploy:
         needs: [test]
         environment:
